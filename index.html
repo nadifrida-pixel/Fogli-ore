@@ -144,9 +144,7 @@ code{background:var(--gray-l);padding:1px 5px;border-radius:4px;font-size:11px;f
     </div>
   </div>
   <button class="btn btn-p" id="b0" onclick="go(1)" disabled>Avanti →</button>
-  <div style="text-align:center;margin-top:4px">
-    <button onclick="openCfg()" style="background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline">⚙️ Configura invio automatico a Drive</button>
-  </div>
+
 </div>
 
 <!-- STEP 1 -->
@@ -193,27 +191,6 @@ code{background:var(--gray-l);padding:1px 5px;border-radius:4px;font-size:11px;f
   <div id="msgDrive"></div>
 </div>
 
-<!-- CONFIG OVERLAY -->
-<div class="ov" id="cfgOv">
-  <div class="ovp">
-    <h3>☁️ Invio automatico a Google Drive</h3>
-    <p class="sub">Configura una volta sola. Poi ogni dipendente che clicca "Scarica PDF e invia a Drive" ti manderà il file direttamente nella tua cartella Drive.</p>
-    <ol class="step-list">
-      <li>Vai su <strong>script.google.com</strong> → Nuovo progetto</li>
-      <li>Cancella il codice esistente e incolla lo script (pulsante sotto)</li>
-      <li>Clicca <strong>Distribuisci → Nuova distribuzione → App web</strong><br>Imposta "Accesso: Chiunque" e clicca Distribuisci</li>
-      <li>Copia l'URL che appare e incollalo qui sotto</li>
-    </ol>
-    <button class="btn btn-s" style="margin-bottom:10px" onclick="copiaScript()">📋 Copia lo script da incollare</button>
-    <div class="fld"><label>URL della tua Google Apps Script Web App</label>
-      <input type="url" id="cfg_url" placeholder="https://script.google.com/macros/s/.../exec">
-    </div>
-    <div class="al al-w" style="font-size:12px;margin-bottom:12px">⚠️ L'URL viene salvato in questo browser. Non condividere il link dell'app già configurato.</div>
-    <button class="btn btn-p" onclick="saveCfg()">💾 Salva</button>
-    <button class="btn btn-s" onclick="closeCfg()">Annulla</button>
-  </div>
-</div>
-
 <script>
 const MESI=['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
 const GGS=['Lun','Mar','Mer','Gio','Ven','Sab','Dom'];
@@ -237,7 +214,7 @@ let _sett=[], _nSett=0, _exp=null, _extra=null;
 let cfg={};
 
 function initCfg(){
-  cfg={url:'https://script.google.com/macros/s/AKfycbyrK8ky6UIC5F44SMGtVbKcsHPEVx1O3mJwPV8MYmjHvisUHemuNsY0Udb3DJMSCtJqzw/exec'};
+  cfg={url:'https://script.google.com/macros/s/AKfycbyRZnYrWG4sXnEmzdORz0udNk_TeycuDgq1jUCyO2Bwzjj98Bx17D9Zlqrm_tFfzo4/exec'};
   document.getElementById('driveBtn').style.display='block';
 }
 initCfg();
