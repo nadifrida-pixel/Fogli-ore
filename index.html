@@ -297,8 +297,8 @@ function cGg(g){
   const u1=document.getElementById(`u1_${g}`)?.value;
   const e2=document.getElementById(`e2_${g}`)?.value;
   const u2=document.getElementById(`u2_${g}`)?.value;
-  if(e1&&u1){const d=tm(u1)-tm(e1);if(d>0)tot+=d;}
-  if(e2&&u2){const d=tm(u2)-tm(e2);if(d>0)tot+=d;}
+  if(e1&&u1){let d=tm(u1)-tm(e1);if(d<0)d+=1440;if(d>0)tot+=d;}
+  if(e2&&u2){let d=tm(u2)-tm(e2);if(d<0)d+=1440;if(d>0)tot+=d;}
   const c=document.getElementById(`ht${g}`);
   c.textContent=tot>0?(Math.floor(tot/60)+'h'+(tot%60?String(tot%60).padStart(2,'0'):'')):'—';
 }
@@ -463,8 +463,8 @@ function bRiep(){
         const e2=document.getElementById(`e2_${g}`)?.value;
         const u2=document.getElementById(`u2_${g}`)?.value;
         let tot=0;
-        if(e1&&u1){const d=tm(u1)-tm(e1);if(d>0)tot+=d;}
-        if(e2&&u2){const d=tm(u2)-tm(e2);if(d>0)tot+=d;}
+        if(e1&&u1){let d=tm(u1)-tm(e1);if(d<0)d+=1440;if(d>0)tot+=d;}
+        if(e2&&u2){let d=tm(u2)-tm(e2);if(d<0)d+=1440;if(d>0)tot+=d;}
         if(tot>0){oreLav+=tot/60;gL++;}
       }
     }
@@ -594,8 +594,8 @@ async function generaPDF(inviaADrive){
       const u2=document.getElementById(`u2_${g}`)?.value||'';
       const dsc=document.getElementById(`dsc${g}`)?.value||'';
       let tot=0;
-      if(e1&&u1){const d=tm(u1)-tm(e1);if(d>0)tot+=d;}
-      if(e2&&u2){const d=tm(u2)-tm(e2);if(d>0)tot+=d;}
+      if(e1&&u1){let d=tm(u1)-tm(e1);if(d<0)d+=1440;if(d>0)tot+=d;}
+      if(e2&&u2){let d=tm(u2)-tm(e2);if(d<0)d+=1440;if(d>0)tot+=d;}
       const totH=tot>0?Math.floor(tot/60)+'h'+(tot%60?String(tot%60).padStart(2,'0'):''):'';
       const lbl={L:'',F:'FERIE',M:'MALATTIA',P:'PERMESSO',R:'RIPOSO'}[tg]||'';
       rows.push({g,dn,we,tg,e1,u1,e2,u2,totH,lbl,dsc});
